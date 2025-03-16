@@ -1,45 +1,79 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, HTTPException
 import os
 from backend.text_processing import preprocess_text, chunk_text
-from backend.embedding_store import add_to_faiss, retrieve_top_chunks
+from backend.embedding_store import add_to_faiss, retrieve_top_chunks, filter_relevant_chunks
 from backend.refiner import refine_text
+from backend.model_loader import load_pipeline, unload_pipeline
 
 app = FastAPI()
 
-# Upload a text file
+# Ensure temp directory exists
+if not os.path.exists("temp"):
+    os.makedirs("temp")
+
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
-    file_location = f"temp/{file.filename}"
-    with open(file_location, "wb") as f:
-        f.write(await file.read())
+    try:
+        file_location = f"temp/{file.filename}"
 
-    with open(file_location, "r", encoding="utf-8") as f:
-        raw_text = f.read()
+        # Save the uploaded file
+        with open(file_location, "wb") as f:
+            f.write(await file.read())
 
-    print("Raw Text:", raw_text[:500])  # Print first 500 chars for debugging
+        # Read file contents
+        with open(file_location, "r", encoding="utf-8") as f:
+            raw_text = f.read()
 
-    # Process text
-    cleaned_text = preprocess_text(raw_text)
-    print("Cleaned Text:", cleaned_text[:500])  # Debug cleaned text
+        if not raw_text.strip():
+            raise HTTPException(status_code=400, detail="Uploaded file is empty.")
 
-    chunks = chunk_text(cleaned_text)
-    print("Generated Chunks:", chunks)  # Debug chunk output
+        print("Raw Text:", raw_text[:500])  # Debugging output
 
-    # Store in FAISS
-    add_to_faiss(chunks)
+        # Process text
+        cleaned_text = preprocess_text(raw_text)
+        print("Cleaned Text:", cleaned_text[:500])  # Debug cleaned text
 
-    return {"message": "File processed", "chunks": chunks}
+        # Chunk text
+        chunks = chunk_text(cleaned_text)
+        if not chunks:
+            raise HTTPException(status_code=500, detail="Failed to generate text chunks.")
+
+        print("Generated Chunks:", chunks[:5])  # Debug only first 5 chunks
+
+        # Store in FAISS
+        add_to_faiss(chunks)
+
+        return {"message": "File processed successfully", "chunks": chunks}
+
+    except Exception as e:
+        print(f"Error in /upload/: {str(e)}")  # Log error
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 
 @app.get("/retrieve/")
 async def retrieve(query: str):
     print("User Query:", query)
-    results = retrieve_top_chunks(query)  # Retrieve top chunks
-    refined_output = refine_text(query, " ".join(results))  # Pass query + content
-    print(results)
-    print("\n\n\n\n\n")
-    print(refined_output)
+
+    # Retrieve top chunks
+    results = retrieve_top_chunks(query)
+
+    if not results:
+        return {"query": query, "refined_response": "No relevant content found."}
+
+    # Filter relevant chunks
+    filtered_chunks = filter_relevant_chunks(query, results)
+
+    if not filtered_chunks:
+        return {"query": query, "refined_response": "No highly relevant content found."}
+
+    # Generate refined response
+    refined_output = refine_text(query, " ".join(filtered_chunks))
+
+    # Unload model after inference to free memory
+    unload_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
+
     return {"query": query, "refined_response": refined_output}
+
 
 # Generate AI Discussion (Placeholder)
 @app.get("/generate_discussion/")

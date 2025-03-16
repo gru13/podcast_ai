@@ -1,46 +1,41 @@
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
-import torch
-import os
+from backend.model_loader import load_pipeline, unload_pipeline
+from backend.text_processing import preprocess_text
+import re
 
-# Load Hugging Face token from .env
-hf_transformers_token = os.getenv('HF_TRANSFORMERS_TOKEN')
+model_pipeline = None
 
-# Load Model with 4-bit quantization
-model_name = "mistralai/Mistral-7B-Instruct-v0.3"
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    load_in_4bit=True,  # Load in 4-bit to reduce VRAM usage
-    torch_dtype=torch.float16,  # Use FP16 for better efficiency
-    device_map="auto",  # Auto-assign to available GPU
-    token=hf_transformers_token
-)
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-def refine_text(user_query, retrieved_chunks):
+def refine_text(user_query, retrieved_chunks, model_name="mistralai/Mistral-7B-Instruct-v0.3"):
     """Refines retrieved content into a smooth response based on user query."""
+    
+    global model_pipeline
+    
+    MAX_INPUT_TOKENS = 3000  # Input limit
+    MAX_NEW_TOKENS = 1000     # Output limit
+    
+    # Preprocess and concatenate retrieved chunks
+    cleaned_content = preprocess_text(" ".join(retrieved_chunks))
+    
+    # Truncate input if needed
+    truncated_content = cleaned_content[:MAX_INPUT_TOKENS]
+    
+    print("\n\n\nTruncated Content:", truncated_content[:500])  # Debug truncated content
+    
+    # Generate structured prompt
     prompt = f"""
     User asked: "{user_query}"
     
     Based on the retrieved content below, generate a structured and coherent answer:
     
-    {retrieved_chunks}
+    {truncated_content}
 
     Ensure the response is well-structured, logically connected, and directly answers the user's question.
     """
 
-    # Tokenize input
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+    if model_pipeline is None:  # Load only if not already loaded
+        model_pipeline = load_pipeline(model_name="mistralai/Mistral-7B-Instruct-v0.3")
+    
+    # Generate output
+    output = model_pipeline(prompt,max_new_tokens=MAX_NEW_TOKENS, do_sample=True, temperature=0.8)
 
-    # Generate response
-    with torch.no_grad():
-        output = model.generate(**inputs, max_length=500, do_sample=True, temperature=0.7)
-
-    # Decode output
-    response = tokenizer.decode(output[0], skip_special_tokens=True)
-
-    # Free up GPU memory
-    del inputs, output
-    torch.cuda.empty_cache()
-
-    return response
+    return output[0]["generated_text"].split("Ensure the response is well-structured, logically connected, and directly answers the user's question.")[-1]

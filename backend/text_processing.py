@@ -2,13 +2,24 @@ import nltk
 import spacy
 from bertopic import BERTopic
 from nltk.tokenize import sent_tokenize
+import re
+
 
 nltk.download("punkt")
 nlp = spacy.load("en_core_web_sm")
 
 def preprocess_text(text):
-    """Cleans text by removing extra spaces, special characters, etc."""
-    return " ".join(text.split())
+    """Cleans and structures text before passing it to the model."""
+    
+    # Remove extra spaces, newlines, and unwanted symbols
+    text = re.sub(r'\s+', ' ', text).strip()  # Collapse multiple spaces
+    text = re.sub(r'\*\*', '', text)  # Remove markdown bold markers (**text**)
+    text = re.sub(r'---+', ' ', text)  # Remove dividers (---)
+    
+    # Optional: Fix sentence spacing (ensure periods are properly spaced)
+    text = re.sub(r'\.([A-Za-z])', r'. \1', text)
+    
+    return text
 
 def chunk_text(text):
     """Splits text into topic-based chunks using BERTopic."""
