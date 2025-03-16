@@ -77,8 +77,44 @@ async def retrieve(query: str):
 
 # Generate AI Discussion (Placeholder)
 @app.get("/generate_discussion/")
-async def generate_discussion():
-    return {"discussion": ["Speaker 1: Hello!", "Speaker 2: Hi!"]}
+async def generate_discussion(refined_text: str):
+    """
+    Generates a conversation between two AI personas discussing the refined text.
+    
+    :param refined_text: The refined text extracted from retrieval.
+    :return: A structured conversation as a response.
+    """
+    print("Generating AI Discussion...")
+
+    # Ensure model is loaded
+    model_pipeline = load_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
+
+    # Conversation prompt
+    prompt = f"""
+    Generate a structured conversation between two AI personas (Person A and Person B) discussing the following topic:
+
+    {refined_text}
+
+    The conversation should be engaging, logical, and naturally flowing, where each persona questions or adds insights to the other's response.
+
+    Format:
+    Person A: [opening statement]
+    Person B: [response, follow-up question]
+    Person A: [answers, new insight]
+    Person B: [wrap-up or additional query]
+    """
+
+    # Generate conversation
+    output = model_pipeline(prompt, max_new_tokens=800, do_sample=True, temperature=0.8)
+
+    # Unload model to free memory
+    unload_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
+
+    # Extract generated conversation
+    discussion_text = output[0]["generated_text"].split("Person B: [wrap-up or additional query]")[-1]
+
+    return {"generated_discussion": discussion_text}
+
 
 # Convert to Speech (Placeholder)
 @app.get("/generate_speech/")
