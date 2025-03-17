@@ -21,7 +21,7 @@ model_pipeline = load_pipeline()
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
     try:
-        file_location = f"file.filename"
+        file_location = f"{file.filename}"
         print("File Location:", file_location)
         # Save the uploaded file
         with open(file_location, "wb") as f:

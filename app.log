@@ -119,3 +119,7 @@
 2025-03-17 13:17:24,270 - INFO - Retrieved text for query: Explain DBMS features
 2025-03-17 13:18:28,054 - INFO - AI discussion generated successfully.
 2025-03-17 13:20:25,661 - INFO - Speech generation completed successfully.
+2025-03-17 13:45:29,924 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 13:45:29,971 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 13:45:31,466 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 13:45:31,730 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
