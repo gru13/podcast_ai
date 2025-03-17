@@ -1,0 +1,121 @@
+2025-03-17 10:38:15,939 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 10:38:15,953 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 10:38:21,012 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 10:39:11,743 - ERROR - Unexpected error in upload_file: 'NamedString' object has no attribute 'path'
+2025-03-17 10:42:43,024 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 10:42:43,036 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 10:42:43,609 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 10:42:45,614 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 10:42:59,281 - ERROR - Unexpected error in upload_file: '/tmp/gradio/31003acd584ac81c5c6b570b94717a99de933397938acf132777871db2aa911e/sample.txt' and '/tmp/gradio/31003acd584ac81c5c6b570b94717a99de933397938acf132777871db2aa911e/sample.txt' are the same file
+2025-03-17 10:46:24,300 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 10:46:24,315 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 10:46:26,700 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 10:49:04,031 - ERROR - Unexpected error in upload_file: 'NamedString' object has no attribute 'read'
+2025-03-17 10:55:52,661 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 10:55:52,662 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 10:56:59,760 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 10:56:59,771 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 10:57:01,070 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 10:57:01,071 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 10:57:34,315 - ERROR - Unexpected error in upload_file: 'NamedString' object has no attribute 'read'
+2025-03-17 10:59:08,820 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 10:59:08,834 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 10:59:09,993 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 10:59:10,700 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:01:27,110 - ERROR - Unexpected error in upload_file: 'NamedString' object has no attribute 'read'
+2025-03-17 11:07:27,131 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:07:27,138 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:07:27,147 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:07:28,674 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:10:48,469 - INFO - File uploaded and copied to: /tmp/podcast_ai_uploads/sample.txt
+2025-03-17 11:10:48,474 - ERROR - Upload failed: [{'type': 'missing', 'loc': ['body', 'file'], 'msg': 'Field required', 'input': None}]
+2025-03-17 11:11:27,241 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:11:27,251 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:11:28,584 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:11:28,854 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:18:50,343 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:18:50,355 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:18:50,808 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:18:51,494 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:21:45,112 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:21:45,124 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:21:48,768 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:21:49,088 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:22:33,484 - INFO - File uploaded: /tmp/gradio/31003acd584ac81c5c6b570b94717a99de933397938acf132777871db2aa911e/sample.txt
+2025-03-17 11:23:42,258 - INFO - Retrieved text for query: Explain Features of DBMS
+2025-03-17 11:24:23,236 - INFO - AI discussion generated successfully.
+2025-03-17 11:24:54,347 - ERROR - Speech generation failed: [{'type': 'missing', 'loc': ['body', 'discussion'], 'msg': 'Field required', 'input': None}]
+2025-03-17 11:34:46,027 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:34:46,049 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:34:46,680 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:34:47,284 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:34:52,766 - ERROR - Failed to connect to server: Expecting value: line 1 column 1 (char 0)
+2025-03-17 11:35:12,214 - ERROR - Failed to connect to server: Expecting value: line 1 column 1 (char 0)
+2025-03-17 11:38:30,726 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:38:30,738 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:39:22,478 - ERROR - Failed to connect to server: Expecting value: line 1 column 1 (char 0)
+2025-03-17 11:43:25,084 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:43:25,101 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:43:25,641 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:43:26,237 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:44:05,919 - ERROR - Speech generation failed: Internal Server Error: invalid decimal literal (<string>, line 1)
+2025-03-17 11:45:19,107 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:45:19,118 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:45:20,430 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:45:20,836 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:45:25,543 - ERROR - Speech generation failed: Internal Server Error: invalid decimal literal (<string>, line 1)
+2025-03-17 11:49:25,831 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:49:25,842 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:49:27,198 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:49:27,527 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:49:30,717 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 3 (char 2)
+2025-03-17 11:49:37,711 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 3 (char 2)
+2025-03-17 11:49:39,118 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 3 (char 2)
+2025-03-17 11:52:37,855 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:52:37,865 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:52:38,390 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:52:39,317 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:53:14,277 - INFO - AI discussion generated successfully.
+2025-03-17 11:57:37,025 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:57:37,037 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:57:37,815 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:57:38,468 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:58:49,178 - INFO - AI discussion generated successfully.
+2025-03-17 11:59:42,960 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 11:59:43,021 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 11:59:43,934 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 11:59:44,509 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 11:59:45,150 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 1 (char 0)
+2025-03-17 12:55:09,930 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 1 (char 0)
+2025-03-17 12:57:04,424 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 1 (char 0)
+2025-03-17 12:57:13,528 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 12:57:13,560 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 12:57:14,157 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 12:57:14,786 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 12:59:10,763 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 1 (char 0)
+2025-03-17 13:00:19,143 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 13:00:19,172 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 13:00:20,143 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 13:00:20,742 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 13:00:20,901 - ERROR - Unexpected error in generate_speech: Expecting value: line 1 column 1 (char 0)
+2025-03-17 13:04:44,440 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 13:04:44,467 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 13:04:45,440 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 13:04:45,956 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 13:06:02,033 - ERROR - JSON decode error: Expecting value: line 1 column 1 (char 0)
+2025-03-17 13:08:32,056 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 13:08:32,069 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 13:08:32,765 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 13:08:33,990 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 13:08:38,300 - ERROR - Speech generation failed: Internal Server Error: 'dict' object has no attribute 'split'
+2025-03-17 13:10:56,681 - ERROR - Speech generation failed: Internal Server Error: too many values to unpack (expected 2)
+2025-03-17 13:11:03,743 - ERROR - Speech generation failed: Internal Server Error: too many values to unpack (expected 2)
+2025-03-17 13:13:51,421 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 13:13:51,440 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 13:13:51,500 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 13:13:52,359 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 13:14:44,400 - INFO - Speech generation completed successfully.
+2025-03-17 13:16:07,706 - INFO - File uploaded: /tmp/gradio/31003acd584ac81c5c6b570b94717a99de933397938acf132777871db2aa911e/sample.txt
+2025-03-17 13:17:24,270 - INFO - Retrieved text for query: Explain DBMS features
+2025-03-17 13:18:28,054 - INFO - AI discussion generated successfully.
+2025-03-17 13:20:25,661 - INFO - Speech generation completed successfully.

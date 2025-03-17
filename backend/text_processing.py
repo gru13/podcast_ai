@@ -19,16 +19,19 @@ def preprocess_text(text):
     # Optional: Fix sentence spacing (ensure periods are properly spaced)
     text = re.sub(r'\.([A-Za-z])', r'. \1', text)
     
+    print("Preprocessed Text:", text[:500])  # Debug preprocessed text
     return text
 
 def chunk_text(text):
     """Splits text into topic-based chunks using BERTopic."""
     # Sentence tokenization
     sentences = sent_tokenize(text)
+    print("Tokenized Sentences:", sentences[:5])  # Debug first 5 sentences
     
     # Use BERTopic to detect topic shifts
     topic_model = BERTopic()
     topics, _ = topic_model.fit_transform(sentences)
+    print("Detected Topics:", topics[:5])  # Debug first 5 topics
 
     chunks = []
     current_chunk = []
@@ -44,4 +47,5 @@ def chunk_text(text):
     if current_chunk:
         chunks.append(" ".join(current_chunk))
 
+    print("Generated Chunks:", chunks[:5])  # Debug first 5 chunks
     return chunks

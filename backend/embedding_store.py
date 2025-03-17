@@ -19,6 +19,10 @@ def add_to_faiss(chunks):
     
     # Convert text chunks to embeddings
     embeddings = embedding_model.encode(chunks)
+    print("Embeddings Shape:", embeddings.shape)  # Debug embeddings shape
+    
+    if embeddings.size == 0:
+        raise ValueError("Generated embeddings are empty.")
     
     # Convert to NumPy array and store in FAISS
     embeddings = np.array(embeddings).astype('float32')

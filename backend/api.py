@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException, Form
+from fastapi import FastAPI, UploadFile, File, HTTPException, Body
 from backend.text_processing import preprocess_text, chunk_text
 from backend.embedding_store import add_to_faiss, retrieve_top_chunks, filter_relevant_chunks
 from backend.refiner import refine_text
@@ -6,6 +6,8 @@ from backend.model_loader import load_pipeline, unload_pipeline
 from backend.tts_generator import generate_ai_discussion
 import os
 import re
+from typing import List
+
 
 app = FastAPI()
 
@@ -19,8 +21,8 @@ model_pipeline = load_pipeline()
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
     try:
-        file_location = f"temp/{file.filename}"
-
+        file_location = f"file.filename"
+        print("File Location:", file_location)
         # Save the uploaded file
         with open(file_location, "wb") as f:
             f.write(await file.read())
@@ -125,25 +127,27 @@ async def generate_discussion(refined_text: str):
     return {"generated_discussion": conversation}
 
 
+
+
 @app.post("/generate_speech/")
-async def generate_speech(discussion: str = Form(...)):
+async def generate_speech(discussion: dict = Body(...)):
     """
     Generates speech from an AI discussion where different speakers have different voices.
     
-    :param discussion: A list of tuples where each tuple contains (speaker, text).
+    :param discussion: A list of lists where each inner list contains [speaker, text].
     :return: The generated .wav file.
     """
-    output_path = "output_speech.wav"
-    discussion = eval(discussion)
-    print("Received Text:", discussion)
-    # Generate speech using Coqui XTTS
-    generate_ai_discussion(discussion, output_path)
-    return {"message": "Speech generated successfully!", "file_path": output_path}
+    try:
+        print("Received Discussion:", discussion)  # Debug received discussion
+        output_path = "output_speech.wav"
+        # Generate speech using Coqui XTTS
+        generate_ai_discussion(discussion["discussion"], output_path)
+        return {"message": "Speech generated successfully!", "file_path": output_path}
+    except Exception as e:
+        print(f"Error in /generate_speech/: {str(e)}")  # Log error
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
-# @app.post("/generate_speech/")
-# async def generate_speech(discussion: list):
 
-#     # Return the generated file
 
 if __name__ == "__main__":
     import uvicorn
