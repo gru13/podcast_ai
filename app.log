@@ -123,3 +123,22 @@
 2025-03-17 13:45:29,971 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
 2025-03-17 13:45:31,466 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
 2025-03-17 13:45:31,730 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 16:11:54,123 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-17 16:11:54,135 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-17 16:11:54,586 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-17 16:11:55,208 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-17 16:12:12,319 - INFO - File uploaded: /tmp/gradio/3310b02f75f7d8d902ea3057e91d440b7d6d1703dfddfedc15c254b8eddf34f7/sample.txt
+2025-03-17 16:12:47,639 - INFO - Retrieved text for query: Explain SQL
+2025-03-17 16:12:55,615 - INFO - Retrieved text for query: Explain sql
+2025-03-17 16:12:56,831 - INFO - Retrieved text for query: Explain sql
+2025-03-17 16:13:42,994 - INFO - Retrieved text for query: Explain dbms components
+2025-03-17 16:14:18,076 - INFO - Retrieved text for query: Explain Normalizations
+2025-03-17 16:14:40,922 - INFO - Retrieved text for query: Explain all Normalizations
+2025-03-17 16:17:18,057 - INFO - File uploaded: /tmp/gradio/3310b02f75f7d8d902ea3057e91d440b7d6d1703dfddfedc15c254b8eddf34f7/sample.txt
+2025-03-17 16:18:18,153 - INFO - Retrieved text for query: Explain all Normalizations
+2025-03-17 16:19:07,567 - INFO - AI discussion generated successfully.
+2025-03-17 16:20:10,352 - INFO - Speech generation completed successfully.
+2025-03-17 16:21:07,323 - INFO - Retrieved text for query: Explain SQL
+2025-03-17 16:21:57,958 - INFO - AI discussion generated successfully.
+2025-03-17 16:23:17,551 - INFO - Speech generation completed successfully.
+2025-03-17 16:27:15,711 - INFO - File uploaded: /tmp/gradio/3310b02f75f7d8d902ea3057e91d440b7d6d1703dfddfedc15c254b8eddf34f7/sample.txt

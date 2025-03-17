@@ -14,6 +14,7 @@ def preprocess_text(text):
     text = re.sub(r'\s+', ' ', text).strip()  # Collapse multiple spaces
     text = re.sub(r'\*\*', '', text)  # Remove markdown bold markers (**text**)
     text = re.sub(r'---+', ' ', text)  # Remove dividers (---)
+    text = re.sub(r'[-#]{2,}', ' ', text)  # Remove dividers (---, ###, ####, etc.)
     
     # Optional: Fix sentence spacing (ensure periods are properly spaced)
     text = re.sub(r'\.([A-Za-z])', r'. \1', text)
@@ -46,24 +47,5 @@ def chunk_text(text):
     if current_chunk:
         chunks.append(" ".join(current_chunk))
 
-    # Adaptive chunking: Ensure chunks are not too small or too large
-    min_chunk_size = 50  # Minimum number of characters per chunk
-    max_chunk_size = 500  # Maximum number of characters per chunk
-    adaptive_chunks = []
-    temp_chunk = ""
-
-    for chunk in chunks:
-        if len(temp_chunk) + len(chunk) <= max_chunk_size:
-            temp_chunk += " " + chunk
-        else:
-            if len(temp_chunk) >= min_chunk_size:
-                adaptive_chunks.append(temp_chunk.strip())
-                temp_chunk = chunk
-            else:
-                temp_chunk += " " + chunk
-
-    if temp_chunk:
-        adaptive_chunks.append(temp_chunk.strip())
-
-    print("Adaptive Chunks:", adaptive_chunks[:5])  # Debug first 5 adaptive chunks
-    return adaptive_chunks
+    print("Generated Chunks:", chunks[:5])  # Debug first 5 chunks
+    return chunks

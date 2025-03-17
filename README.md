@@ -20,6 +20,7 @@
 │── 📄 requirements.txt        # Dependencies
 │── 📄 README.md               # Project Docs
 │── 📄 .gitignore              # Git ignore file
+│── 📄 supervisord.conf        # Supervisor configuration file
 ```
 
 ## Project Overview
@@ -212,7 +213,7 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
      ```
    - **Run the Docker Container**:
      ```bash
-     docker run -p 8000:8000 podcast_ai
+     docker run -p 7860:7860 podcast_ai
      ```
 
 ### Notes
