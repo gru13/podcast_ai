@@ -1,15 +1,20 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException
-import os
+from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from backend.text_processing import preprocess_text, chunk_text
 from backend.embedding_store import add_to_faiss, retrieve_top_chunks, filter_relevant_chunks
 from backend.refiner import refine_text
 from backend.model_loader import load_pipeline, unload_pipeline
+from backend.tts_generator import generate_ai_discussion
+import os
+import re
 
 app = FastAPI()
 
 # Ensure temp directory exists
 if not os.path.exists("temp"):
     os.makedirs("temp")
+
+# Load the model once when the API starts
+model_pipeline = load_pipeline()
 
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
@@ -67,7 +72,7 @@ async def retrieve(query: str):
         return {"query": query, "refined_response": "No highly relevant content found."}
 
     # Generate refined response
-    refined_output = refine_text(query, " ".join(filtered_chunks))
+    refined_output = refine_text(query, " ".join(filtered_chunks), model_pipeline)
 
     # Unload model after inference to free memory
     unload_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
@@ -80,14 +85,11 @@ async def retrieve(query: str):
 async def generate_discussion(refined_text: str):
     """
     Generates a conversation between two AI personas discussing the refined text.
-    
+
     :param refined_text: The refined text extracted from retrieval.
-    :return: A structured conversation as a response.
+    :return: A structured conversation as a list of tuples (speaker, content).
     """
     print("Generating AI Discussion...")
-
-    # Ensure model is loaded
-    model_pipeline = load_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
 
     # Conversation prompt
     prompt = f"""
@@ -98,28 +100,50 @@ async def generate_discussion(refined_text: str):
     The conversation should be engaging, logical, and naturally flowing, where each persona questions or adds insights to the other's response.
 
     Format:
-    Person A: [opening statement]
-    Person B: [response, follow-up question]
-    Person A: [answers, new insight]
-    Person B: [wrap-up or additional query]
+    Person A: [opening statement]  
+    Person B: [response, follow-up question]  
+    Person A: [answers, new insight]  
+    Person B: [wrap-up or additional query]  
     """
 
     # Generate conversation
-    output = model_pipeline(prompt, max_new_tokens=800, do_sample=True, temperature=0.8)
-
-    # Unload model to free memory
-    unload_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
+    output = model_pipeline(prompt, max_new_tokens=1000, do_sample=True, temperature=0.8)
 
     # Extract generated conversation
-    discussion_text = output[0]["generated_text"].split("Person B: [wrap-up or additional query]")[-1]
+    raw_text = output[0]["generated_text"].split("Person B: [wrap-up or additional query]")[-1].strip()
 
-    return {"generated_discussion": discussion_text}
+    # Post-processing: Convert output into list of tuples
+    conversation = []
+    lines = raw_text.split("\n")
+
+    for line in lines:
+        match = re.match(r"^(Person [AB]):\s*(.*)", line.strip())  # Extract speaker and content
+        if match:
+            speaker, content = match.groups()
+            conversation.append((speaker, content))
+
+    return {"generated_discussion": conversation}
 
 
-# Convert to Speech (Placeholder)
-@app.get("/generate_speech/")
-async def generate_speech():
-    return {"audio": "audio_file_path.mp3"}
+@app.post("/generate_speech/")
+async def generate_speech(discussion: str = Form(...)):
+    """
+    Generates speech from an AI discussion where different speakers have different voices.
+    
+    :param discussion: A list of tuples where each tuple contains (speaker, text).
+    :return: The generated .wav file.
+    """
+    output_path = "output_speech.wav"
+    discussion = eval(discussion)
+    print("Received Text:", discussion)
+    # Generate speech using Coqui XTTS
+    generate_ai_discussion(discussion, output_path)
+    return {"message": "Speech generated successfully!", "file_path": output_path}
+
+# @app.post("/generate_speech/")
+# async def generate_speech(discussion: list):
+
+#     # Return the generated file
 
 if __name__ == "__main__":
     import uvicorn

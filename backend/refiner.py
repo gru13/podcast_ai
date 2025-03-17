@@ -2,13 +2,8 @@ from backend.model_loader import load_pipeline, unload_pipeline
 from backend.text_processing import preprocess_text
 import re
 
-model_pipeline = None
-
-
-def refine_text(user_query, retrieved_chunks, model_name="mistralai/Mistral-7B-Instruct-v0.3"):
+def refine_text(user_query, retrieved_chunks, model_pipeline):
     """Refines retrieved content into a smooth response based on user query."""
-    
-    global model_pipeline
     
     MAX_INPUT_TOKENS = 3000  # Input limit
     MAX_NEW_TOKENS = 1000     # Output limit
@@ -32,10 +27,7 @@ def refine_text(user_query, retrieved_chunks, model_name="mistralai/Mistral-7B-I
     Ensure the response is well-structured, logically connected, and directly answers the user's question.
     """
 
-    if model_pipeline is None:  # Load only if not already loaded
-        model_pipeline = load_pipeline(model_name="mistralai/Mistral-7B-Instruct-v0.3")
-    
     # Generate output
-    output = model_pipeline(prompt,max_new_tokens=MAX_NEW_TOKENS, do_sample=True, temperature=0.8)
+    output = model_pipeline(prompt, max_new_tokens=MAX_NEW_TOKENS, do_sample=True, temperature=0.8)
 
     return output[0]["generated_text"].split("Ensure the response is well-structured, logically connected, and directly answers the user's question.")[-1]

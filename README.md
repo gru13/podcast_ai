@@ -6,23 +6,20 @@
 │── 📁 backend/
 │   ├── 📄 text_processing.py  # Preprocessing & Chunking
 │   ├── 📄 embedding_store.py  # Embeddings & FAISS DB
-│   ├── 📄 retrieval.py        # Context Retrieval API
-│   ├── 📄 dialogue_generator.py  # AI Discussion Generation
-│   ├── 📄 tts_generator.py    # Text-to-Speech (XTTS, FastSpeech2)
 │   ├── 📄 api.py              # FastAPI server to expose endpoints
-│   ├── 📄 __init__.py         # Backend module initialization
+│   ├── 📄 model_loader.py     # Model loading and unloading
+│   ├── 📄 refiner.py          # Text refinement
+│   ├── 📄 tts_generator.py    # Text-to-Speech (XTTS, FastSpeech2)
 │
 │── 📁 frontend/
 │   ├── 📄 app.py              # Gradio UI
-│
-│── 📁 tests/
-│   ├── 📄 text_processing.py  # Test script for text processing
 │
 │── 📁 temp/
 │   ├── 📄 sample.txt          # Sample text file for testing
 │
 │── 📄 requirements.txt        # Dependencies
 │── 📄 README.md               # Project Docs
+│── 📄 .gitignore              # Git ignore file
 ```
 
 ## 1️⃣ **Text Processing & Chunking**
@@ -52,7 +49,7 @@
 ### **Goal:** Retrieve the most relevant chunks based on the question.
 ### **Tech Used:**
 - **FAISS** for efficient vector search
-- **Open-source sentence embedding models (e.g., BGE, SBERT)**
+- **Open-source sentence embedding models (e.g., SBERT)**
 - **Re-ranking using cosine similarity & LLM filtering**
 
 ### **Process:**
@@ -60,11 +57,10 @@
 2. **Retrieve Top-k Chunks**: Search FAISS for the nearest vector matches.
 3. **Relevance Filtering**:
    - **Re-rank based on cosine similarity**
-- **LLM-assisted verification**: Check if the retrieved content truly answers the question.
-- **LLM-assisted verification**: Check if the retrieved content truly answers the question.
+   - **LLM-assisted verification**: Check if the retrieved content truly answers the question.
 
 ### **Challenges & Solutions:**
-✅ **Irrelevant Context Retrieval** → Use **cross-attention re-ranking**.
+✅ **Irrelevant Context Retrieval** → Use **LLM-based verification** and **cross-attention re-ranking**.
 ✅ **Retrieval Accuracy** → Fine-tune embeddings, optimize FAISS parameters.
 ✅ **Handling Ambiguous Queries** → Expand queries using paraphrasing techniques.
 
@@ -74,6 +70,7 @@
 ### **Goal:** Generate a natural-sounding two-person discussion from retrieved context.
 ### **Tech Used:**
 - **Mistral/ZEPHYR 7B (or 4B model)** for response generation
+- **Prompt engineering** for role-based dialogue structuring
 - **Speaker Style Adaptation** to add variation in responses
 
 ### **Process:**
@@ -122,6 +119,7 @@
 ### **Tech Used:**
 - **FastAPI** for backend services
 - **Gradio** for frontend UI
+- **Docker** for deployment
 
 ### **Process:**
 1. **User Uploads Context (TXT File)**.
@@ -143,6 +141,56 @@
 - All components have **proven open-source solutions**.
 - Main challenges are **maintaining coherence, retrieval accuracy, and synthesis quality**.
 - With careful implementation of **BERTopic, FAISS, LLM filtering, and high-quality TTS models**, this system can be highly functional!
+
+---
+
+## 🚀 **Project Setup**
+### **Prerequisites:**
+- Python 3.8 or higher
+- Docker (for containerization)
+- Git (for version control)
+
+### **Steps:**
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/gru13/podcast_ai.git
+   cd podcast_ai
+   ```
+
+2. **Create a Virtual Environment**:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Backend**:
+   ```bash
+   uvicorn backend.api:app --reload
+   ```
+
+5. **Run the Frontend**:
+   ```bash
+   python frontend/app.py
+   ```
+
+6. **Using Docker**:
+   - **Build the Docker Image**:
+     ```bash
+     docker build -t podcast_ai .
+     ```
+   - **Run the Docker Container**:
+     ```bash
+     docker run -p 8000:8000 podcast_ai
+     ```
+
+### **Notes**:
+- Ensure all environment variables are set correctly.
+- Refer to individual module documentation for specific configurations.
 
 ---
 
