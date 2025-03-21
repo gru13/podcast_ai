@@ -168,4 +168,4 @@ with gr.Blocks() as app:
     speech_btn.click(generate_speech, inputs=discussion_output, outputs=speech_output)
 
 # Run Gradio app    
-app.launch(server_name="0.0.0.0", server_port=7862)
+app.launch(server_name="0.0.0.0", server_port=7860)

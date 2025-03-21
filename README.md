@@ -140,7 +140,7 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
 ### Tech Used
 - **FastAPI** for backend services
 - **Gradio** for frontend UI
-- **Docker** for deployment
+
 
 ### Process
 1. **User Uploads Context (TXT File)**.
@@ -149,11 +149,6 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
 4. **AI Generates the Discussion**.
 5. **TTS Converts Discussion into Speech**.
 6. **User Downloads the Podcast**.
-
-### Challenges & Solutions
-✅ **Scalability** → Use **containerization (Docker)** & **async processing**.
-✅ **UI Responsiveness** → Optimize API calls with batching.
-✅ **User Control Over Output** → Provide voice selection & output tuning options.
 
 ---
 
@@ -169,8 +164,7 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
 ## 🚀 Project Setup
 
 ### Prerequisites
-- Python 3.9 or higher
-- Docker (for containerization)
+- Python 3.10.16
 - Git (for version control)
 
 ### Steps
@@ -182,7 +176,7 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
 
 2. **Create a Virtual Environment**:
    ```bash
-   python3 -m venv .venv
+   python3.10 -m venv .venv
    source .venv/bin/activate
    ```
 
@@ -205,16 +199,6 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
    ```bash
    python frontend/app.py
    ```
-
-7. **Using Docker**:
-   - **Build the Docker Image**:
-     ```bash
-     docker build -t podcast_ai .
-     ```
-   - **Run the Docker Container**:
-     ```bash
-     docker run -p 7860:7860 podcast_ai
-     ```
 
 ### Notes
 - Ensure all environment variables are set correctly.

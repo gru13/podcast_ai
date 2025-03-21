@@ -142,3 +142,31 @@
 2025-03-17 16:21:57,958 - INFO - AI discussion generated successfully.
 2025-03-17 16:23:17,551 - INFO - Speech generation completed successfully.
 2025-03-17 16:27:15,711 - INFO - File uploaded: /tmp/gradio/3310b02f75f7d8d902ea3057e91d440b7d6d1703dfddfedc15c254b8eddf34f7/sample.txt
+2025-03-18 09:28:02,406 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-18 09:28:02,456 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-18 09:29:18,294 - INFO - File uploaded: /tmp/gradio/3310b02f75f7d8d902ea3057e91d440b7d6d1703dfddfedc15c254b8eddf34f7/sample.txt
+2025-03-18 09:30:01,981 - INFO - Retrieved text for query: Explain Photosyntesis
+2025-03-18 09:30:29,609 - INFO - Retrieved text for query: Explain types of Normalization
+2025-03-18 09:31:04,156 - INFO - Retrieved text for query:  types of Normalization?
+2025-03-18 09:32:08,532 - INFO - Retrieved text for query:  types of Normalization Forms?
+2025-03-18 09:33:20,351 - INFO - AI discussion generated successfully.
+2025-03-18 09:34:45,637 - INFO - Speech generation completed successfully.
+2025-03-18 10:01:52,042 - INFO - File uploaded: /tmp/gradio/3310b02f75f7d8d902ea3057e91d440b7d6d1703dfddfedc15c254b8eddf34f7/sample.txt
+2025-03-18 10:04:00,735 - INFO - Retrieved text for query: explain photosyntesis?
+2025-03-18 10:04:36,698 - INFO - Retrieved text for query: Explain normalization forms
+2025-03-18 10:04:59,832 - INFO - Retrieved text for query: Explain normalization forms
+2025-03-18 10:05:22,811 - INFO - Retrieved text for query: Explain normalization forms
+2025-03-18 10:06:01,935 - INFO - Retrieved text for query: Explain normalization in dbms
+2025-03-18 10:06:55,405 - INFO - AI discussion generated successfully.
+2025-03-18 10:08:09,510 - INFO - Speech generation completed successfully.
+2025-03-18 10:14:45,856 - INFO - Retrieved text for query: what is my name?
+2025-03-21 20:00:01,129 - INFO - HTTP Request: GET http://localhost:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-21 20:00:01,182 - INFO - HTTP Request: HEAD http://localhost:7862/ "HTTP/1.1 200 OK"
+2025-03-21 20:00:01,485 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-21 20:00:02,202 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-21 20:00:02,510 - INFO - HTTP Request: GET https://api.gradio.app/v3/tunnel-request "HTTP/1.1 200 OK"
+2025-03-21 20:00:03,021 - INFO - HTTP Request: GET https://cdn-media.huggingface.co/frpc-gradio-0.3/frpc_linux_amd64 "HTTP/1.1 200 OK"
+2025-03-21 20:01:09,138 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-03-21 20:01:57,382 - INFO - Retrieved text for query: What are normalization forms?
+2025-03-21 20:02:36,243 - INFO - AI discussion generated successfully.
+2025-03-21 20:03:32,288 - INFO - Speech generation completed successfully.
