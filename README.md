@@ -9,7 +9,7 @@
 │   ├── 📄 api.py              # FastAPI server to expose endpoints
 │   ├── 📄 model_loader.py     # Model loading and unloading
 │   ├── 📄 refiner.py          # Text refinement
-│   ├── 📄 tts_generator.py    # Text-to-Speech (TTS) generation
+│   ├── 📄 tts_generator.py    # Text-to-Speech (XTTS, FastSpeech2)
 │
 │── 📁 frontend/
 │   ├── 📄 app.py              # Gradio UI
@@ -20,7 +20,6 @@
 │── 📄 requirements.txt        # Dependencies
 │── 📄 README.md               # Project Docs
 │── 📄 .gitignore              # Git ignore file
-│── 📄 supervisord.conf        # Supervisor configuration file
 ```
 
 ## Project Overview
@@ -53,43 +52,28 @@ Efficiently process large text files into meaningful chunks for retrieval.
    - Use **BERTopic** to detect topic shifts.
    - Dynamically adjust chunk size based on topic coherence.
    - Overlapping chunks ensure smooth transitions.
-
----
-
-## 2️⃣ Embedding & Context Retrieval
-
-### Goal
-Retrieve the most relevant text chunks based on user queries.
-
-### Tech Used
-- **Sentence Transformers** for embedding generation
-- **FAISS** for efficient similarity search
-
-### Process
+### **Process:**
 1. **Convert Question to Embedding**: Encode using the same model used for text chunks.
 2. **Retrieve Top-k Chunks**: Search FAISS for the nearest vector matches.
 3. **Relevance Filtering**:
    - **Re-rank based on cosine similarity**
    - **LLM-assisted verification**: Check if the retrieved content truly answers the question.
 
-### Challenges & Solutions
+### **Challenges & Solutions:**
 ✅ **Irrelevant Context Retrieval** → Use **LLM-based verification** and **cross-attention re-ranking**.
 ✅ **Retrieval Accuracy** → Fine-tune embeddings, optimize FAISS parameters.
 ✅ **Handling Ambiguous Queries** → Expand queries using paraphrasing techniques.
 
 ---
 
-## 3️⃣ AI Discussion Generation
-
-### Goal
-Generate a natural-sounding two-person discussion from retrieved context.
-
-### Tech Used
-- **Mistral-7B-Instruct** for response generation
+## 3️⃣ **AI Discussion Generation**
+### **Goal:** Generate a natural-sounding two-person discussion from retrieved context.
+### **Tech Used:**
+- **Mistral/ZEPHYR 7B (or 4B model)** for response generation
 - **Prompt engineering** for role-based dialogue structuring
 - **Speaker Style Adaptation** to add variation in responses
 
-### Process
+### **Process:**
 1. **Structure the Conversation**:
    - Assign **two distinct personas**.
    - Ensure one persona asks engaging follow-ups.
@@ -100,49 +84,44 @@ Generate a natural-sounding two-person discussion from retrieved context.
    - Apply **text cleaning & formatting**.
    - Adjust speaker tags for clarity.
 
-### Challenges & Solutions
+### **Challenges & Solutions:**
 ✅ **Maintaining Topic Focus** → Restrict LLM generations using system instructions.
 ✅ **Avoiding Hallucinations** → Use **retrieval-augmented generation (RAG)** to keep responses factual.
 ✅ **Lack of Engagement** → Fine-tune model responses for conversational flow.
 
 ---
 
-## 4️⃣ Text-to-Speech (TTS) Generation
+## 4️⃣ **Text-to-Speech (TTS) Generation**
+### **Goal:** Convert generated text into realistic podcast-style speech.
+### **Tech Used:**
+- **XTTS (for voice cloning)**
+- **FastSpeech 2 (for fast, high-quality synthesis)**
+- **Vocoder (HiFi-GAN or WaveGlow)**
 
-### Goal
-Convert generated text into realistic podcast-style speech.
-
-### Tech Used
-- **Coqui TTS** for voice cloning
-- **VITS** for high-quality synthesis
-
-### Process
+### **Process:**
 1. **Assign Voices**: Each speaker gets a distinct synthetic voice.
 2. **Generate Speech**:
-   - Use **VITS** for high-quality prosody.
-   - Convert output to waveform using **soundfile**.
+   - Use **FastSpeech 2** for high-quality prosody.
+   - Convert output to waveform using **HiFi-GAN**.
 3. **Apply Post-processing**:
    - Normalize audio.
    - Add minor background effects for realism.
 
-### Challenges & Solutions
+### **Challenges & Solutions:**
 ✅ **Voice Consistency** → Use **speaker embeddings** for each character.
 ✅ **Naturalness** → Use **prosody adjustments & duration modeling**.
-✅ **Latency Issues** → Optimize synthesis speed with VITS.
+✅ **Latency Issues** → Optimize synthesis speed with FastSpeech 2.
 
 ---
 
-## 5️⃣ User Interface & API Integration
-
-### Goal
-Provide a user-friendly way to input text files, ask questions, and get a generated podcast.
-
-### Tech Used
+## 5️⃣ **User Interface & API Integration**
+### **Goal:** Provide a user-friendly way to input text files, ask questions, and get a generated podcast.
+### **Tech Used:**
 - **FastAPI** for backend services
 - **Gradio** for frontend UI
+- **Docker** for deployment
 
-
-### Process
+### **Process:**
 1. **User Uploads Context (TXT File)**.
 2. **Backend Processes the Text & Stores in FAISS**.
 3. **User Asks a Question → Retrieves Relevant Chunks**.
@@ -150,24 +129,28 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
 5. **TTS Converts Discussion into Speech**.
 6. **User Downloads the Podcast**.
 
+### **Challenges & Solutions:**
+✅ **Scalability** → Use **containerization (Docker)** & **async processing**.
+✅ **UI Responsiveness** → Optimize API calls with batching.
+✅ **User Control Over Output** → Provide voice selection & output tuning options.
+
 ---
 
-## 🔥 Final Thoughts & Doability
-
-### Overall Feasibility: 90-95% ✅
+## 🔥 **Final Thoughts & Doability**
+### **Overall Feasibility: 90-95%** ✅
 - All components have **proven open-source solutions**.
 - Main challenges are **maintaining coherence, retrieval accuracy, and synthesis quality**.
 - With careful implementation of **BERTopic, FAISS, LLM filtering, and high-quality TTS models**, this system can be highly functional!
 
 ---
 
-## 🚀 Project Setup
-
-### Prerequisites
-- Python 3.10.16
+## 🚀 **Project Setup**
+### **Prerequisites:**
+- Python 3.9 or higher
+- Docker (for containerization)
 - Git (for version control)
 
-### Steps
+### **Steps:**
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/gru13/podcast_ai.git
@@ -176,7 +159,7 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
 
 2. **Create a Virtual Environment**:
    ```bash
-   python3.10 -m venv .venv
+   python3 -m venv .venv
    source .venv/bin/activate
    ```
 
@@ -200,7 +183,17 @@ Provide a user-friendly way to input text files, ask questions, and get a genera
    python frontend/app.py
    ```
 
-### Notes
+7. **Using Docker**:
+   - **Build the Docker Image**:
+     ```bash
+     docker build -t podcast_ai .
+     ```
+   - **Run the Docker Container**:
+     ```bash
+     docker run -p 8000:8000 podcast_ai
+     ```
+
+### **Notes**:
 - Ensure all environment variables are set correctly.
 - Refer to individual module documentation for specific configurations.
 

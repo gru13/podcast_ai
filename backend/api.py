@@ -109,7 +109,7 @@ async def generate_discussion(refined_text: str):
     """
 
     # Generate conversation
-    output = model_pipeline(prompt, max_new_tokens=1000, do_sample=True, temperature=0.8)
+    output = model_pipeline(prompt, max_new_tokens=2000, do_sample=True, temperature=0.8)
 
     # Extract generated conversation
     raw_text = output[0]["generated_text"].split("Person B: [wrap-up or additional query]")[-1].strip()

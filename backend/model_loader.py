@@ -1,5 +1,14 @@
+import os
+from dotenv import load_dotenv
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 import torch
+# Load environment variables
+load_dotenv()
+
+# Retrieve token
+hf_token = os.getenv("HF_TRANSFORMERS_TOKEN")
+
+
 
 # Dictionary to store multiple models
 loaded_models = {}
@@ -17,10 +26,11 @@ def load_pipeline(model_name="mistralai/Mistral-7B-Instruct-v0.3"):
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             load_in_4bit=True,
-            device_map="auto"
+            device_map="auto",
+            use_auth_token=hf_token
         )
         
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        tokenizer = AutoTokenizer.from_pretrained(model_name,use_auth_token=hf_token)
 
         loaded_models[model_name] = pipeline("text-generation", model=model, tokenizer=tokenizer)
         print(f"Model {model_name} loaded successfully.")

@@ -6,7 +6,7 @@ def refine_text(user_query, retrieved_chunks, model_pipeline):
     """Refines retrieved content into a smooth response based on user query."""
     
     MAX_INPUT_TOKENS = 3000  # Input limit
-    MAX_NEW_TOKENS = 1000     # Output limit
+    MAX_NEW_TOKENS = 2000     # Output limit
     
     # Preprocess and concatenate retrieved chunks
     cleaned_content = preprocess_text(" ".join(retrieved_chunks))

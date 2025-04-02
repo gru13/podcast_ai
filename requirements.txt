@@ -14,3 +14,4 @@ soundfile==0.13.1
 coqui-tts==0.26.0
 bitsandbytes==0.45.3
 sentencepiece==0.2.0
+dotenv

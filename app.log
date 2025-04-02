@@ -170,3 +170,29 @@
 2025-03-21 20:01:57,382 - INFO - Retrieved text for query: What are normalization forms?
 2025-03-21 20:02:36,243 - INFO - AI discussion generated successfully.
 2025-03-21 20:03:32,288 - INFO - Speech generation completed successfully.
+2025-03-21 20:51:19,891 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-21 20:51:19,943 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-03-21 20:51:20,374 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-21 20:51:20,994 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-26 15:05:44,257 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-26 15:05:44,328 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-03-26 15:05:46,289 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-26 15:05:47,118 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-26 15:07:20,651 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-03-26 15:08:45,375 - INFO - Retrieved text for query: explain normalization
+2025-03-26 15:09:56,777 - INFO - AI discussion generated successfully.
+2025-03-26 15:11:22,107 - INFO - Speech generation completed successfully.
+2025-03-29 12:09:53,106 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-29 12:09:53,173 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-03-29 12:10:51,391 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-03-29 12:11:56,609 - INFO - Retrieved text for query: what is DBMS?
+2025-03-29 12:12:51,911 - INFO - AI discussion generated successfully.
+2025-03-29 12:14:15,067 - INFO - Speech generation completed successfully.
+2025-03-29 20:34:23,732 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-03-29 20:34:23,743 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-03-29 20:34:24,956 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-03-29 20:34:25,391 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-03-29 20:35:40,600 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-03-29 20:36:52,833 - INFO - Retrieved text for query: what is DBMS ?
+2025-03-29 20:37:31,774 - INFO - AI discussion generated successfully.
+2025-03-29 20:38:52,432 - INFO - Speech generation completed successfully.
