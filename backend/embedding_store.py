@@ -59,5 +59,5 @@ def filter_relevant_chunks(query: str, retrieved_chunks: list, threshold: float 
 
     # Filter chunks based on similarity threshold
     filtered_chunks = [chunk for chunk, score in zip(retrieved_chunks, similarities) if score >= threshold]
-
-    return filtered_chunks
+    filtered_scores = [score.item() for score in similarities if score >= threshold]
+    return filtered_chunks, filtered_scores

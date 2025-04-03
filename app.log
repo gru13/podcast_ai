@@ -196,3 +196,47 @@
 2025-03-29 20:36:52,833 - INFO - Retrieved text for query: what is DBMS ?
 2025-03-29 20:37:31,774 - INFO - AI discussion generated successfully.
 2025-03-29 20:38:52,432 - INFO - Speech generation completed successfully.
+2025-04-02 22:49:30,448 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-02 22:49:30,469 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-04-02 22:49:37,824 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-02 22:49:55,605 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-04-02 22:50:56,221 - INFO - Retrieved text for query: what is DBMS?
+2025-04-02 22:51:40,623 - INFO - AI discussion generated successfully.
+2025-04-02 22:52:41,487 - INFO - Speech generation completed successfully.
+2025-04-02 23:56:05,930 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-02 23:56:05,946 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-04-02 23:56:06,293 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-02 23:56:07,209 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-02 23:56:25,168 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-04-02 23:56:25,170 - ERROR - Failed to connect to server: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /upload/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x79828ebbcee0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-04-02 23:56:57,769 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-04-02 23:57:50,130 - INFO - Retrieved text for query: what is dbms?
+2025-04-03 00:02:12,853 - INFO - AI discussion generated successfully.
+2025-04-03 00:06:16,699 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-03 00:06:16,751 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-04-03 00:06:16,923 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-03 00:06:17,844 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-03 00:09:50,885 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-03 00:09:50,899 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-04-03 00:09:51,939 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-03 00:09:51,939 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-03 00:10:23,772 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-04-03 00:10:38,059 - ERROR - Unexpected error in upload_file: Expecting value: line 1 column 1 (char 0)
+2025-04-03 00:10:49,062 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-04-03 00:10:55,102 - ERROR - Unexpected error in upload_file: Expecting value: line 1 column 1 (char 0)
+2025-04-03 00:12:13,079 - INFO - File uploaded: /tmp/gradio/236e830915302cccbb97cffa8921d7496e6df03d5979e35239326db86ab2b5df/sample.txt
+2025-04-03 00:13:19,576 - INFO - Retrieved text for query: what is dbms
+2025-04-03 00:15:05,915 - INFO - AI discussion generated successfully.
+2025-04-03 00:18:36,556 - INFO - Speech generation completed successfully.
+2025-04-03 00:20:00,761 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-03 00:20:00,857 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-03 00:20:00,874 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-04-03 00:20:01,621 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-03 09:26:32,394 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-03 09:26:32,567 - INFO - HTTP Request: GET http://localhost:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-03 09:26:32,616 - INFO - HTTP Request: HEAD http://localhost:7860/ "HTTP/1.1 200 OK"
+2025-04-03 09:26:33,451 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-03 09:56:43,104 - INFO - File uploaded: /tmp/gradio/8eb17b8391ed4457bf7686dbd32a6d982cbf7ebeb35ccef4f23936908395a778/sample2.txt
+2025-04-03 09:58:00,019 - INFO - Retrieved text for query: Explain Deadlocks in Operating Systems?
+2025-04-03 10:01:54,438 - INFO - AI discussion generated successfully.
+2025-04-03 10:08:16,378 - INFO - Speech generation completed successfully.

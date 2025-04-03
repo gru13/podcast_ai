@@ -47,6 +47,6 @@ def generate_ai_discussion(conversation, output_path="generated_discussion.wav")
         os.remove(temp_file)  # Clean up temp files
     
     final_audio = np.concatenate(audio_segments)
-    sf.write(output_path, final_audio, samplerate=24000)
+    sf.write(output_path, final_audio, samplerate=samplerate)
     
     return output_path

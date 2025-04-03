@@ -65,13 +65,13 @@ async def retrieve(query: str):
     results = retrieve_top_chunks(query)
 
     if not results:
-        return {"query": query, "refined_response": "No relevant content found."}
+        return {"query": query, "refined_response": "No relevant content found.", "filtered_chunks": "", "scores": ""}
 
     # Filter relevant chunks
-    filtered_chunks = filter_relevant_chunks(query, results)
+    filtered_chunks,scores = filter_relevant_chunks(query, results)
 
     if not filtered_chunks:
-        return {"query": query, "refined_response": "No highly relevant content found."}
+        return {"query": query, "refined_response": "No highly relevant content found.", "filtered_chunks": "","scores": ""}
 
     # Generate refined response
     refined_output = refine_text(query, " ".join(filtered_chunks), model_pipeline)
@@ -79,7 +79,7 @@ async def retrieve(query: str):
     # Unload model after inference to free memory
     unload_pipeline('mistralai/Mistral-7B-Instruct-v0.3')
 
-    return {"query": query, "refined_response": refined_output}
+    return {"query": query, "refined_response": refined_output, "filtered_chunks": filtered_chunks, "scores": scores}
 
 
 # Generate AI Discussion (Placeholder)
